@@ -1,6 +1,7 @@
 **Project Description**
 
 The Meet app is a progressive web application with a serverless backend, offering offline access to upcoming events in specific cities. Its responsive design ensures seamless display across devices, delivering a superior user experience. Powered by Test-Driven Development, it prioritizes code quality and test coverage for optimal performance.
+This project is developed using REACT.
 
 **User Stories**
 As a user, I should be able to filter events by city so that I can see a list of events taking place in that city.
@@ -87,3 +88,19 @@ Given user chooses an event of interest but unsure about the details and attenda
 When user taps on chart visualisation icon;
 
 Then user should see a graphical representation of attendance trends, ticket prices, or event popularity over time is displayed.
+
+
+
+
+In this project, created serverless functions using both AWS Lambda and the Serverless Toolkit to get the authorization server up and running. Once the authorization server for the Meet app is in existence, users of the app will be able to connect to the Google Calendar API by way of an access token.
+
+In Exercise 4.3, created the following serverless functions - > getAuthURL() and getAccessToken() & getCalendarEvents().
+
+Steps in the workflow -- 
+1. When users first visit the app, a check occurs to see if they’re authorized.
+2. If they’re not authorized, users are redirected to the Google authorization screen (i.e., getAuthURL).
+3. At the Google authorization screen, users can sign in with their Google credentials, which authorizes their access to the app.
+4. Once authorized, users will be redirected to your app with a code parameter in the URI.
+5. The code parameter is then exchanged for an access token—this is done by sending it to the getAccessToken serverless function.
+6. The function then checks the validity of the code with Google. If valid, the function returns the access token.
+7. Once the token is received, it’s saved in a cookie in local storage, which is sent to the getCalendarEvents serverless function. This function then uses the token to get the events from the Google Calendar API.
