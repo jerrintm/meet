@@ -104,3 +104,9 @@ Steps in the workflow --
 5. The code parameter is then exchanged for an access token—this is done by sending it to the getAccessToken serverless function.
 6. The function then checks the validity of the code with Google. If valid, the function returns the access token.
 7. Once the token is received, it’s saved in a cookie in local storage, which is sent to the getCalendarEvents serverless function. This function then uses the token to get the events from the Google Calendar API.
+
+
+Note:There are two steps to creating a new function to be deployed to AWS Lambda (listed in the order that you followed for your first function):
+
+Step 1. Update the serverless.yml file to tell Serverless what the function is and how to deploy it.
+Step 2. In your handler.js file, create the function and export it using Node.js module exports.
