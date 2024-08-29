@@ -110,3 +110,11 @@ Note:There are two steps to creating a new function to be deployed to AWS Lambda
 
 Step 1. Update the serverless.yml file to tell Serverless what the function is and how to deploy it.
 Step 2. In your handler.js file, create the function and export it using Node.js module exports.
+
+
+Additional notes : 
+After making any changes to the serverless code, it needs to be deployed to AWS Lambda using the command 'serverless deploy'. 
+This needs to be run from the directory 'meet\auth-server'.
+
+The command to run this application locally on the machine is 'http-server'. 
+This needs to be run from the directory 'meet\static-site-test'.
