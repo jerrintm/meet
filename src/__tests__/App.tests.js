@@ -1,6 +1,8 @@
 // src/__tests__/App.test.js
 
-import { render } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { getEvents } from '../api';
 import App from '../App';
 
 describe('<App /> component', () => {
@@ -11,12 +13,12 @@ describe('<App /> component', () => {
     
     
     test('renders list of events', () => {
-        const AppDOM = render(<App />).container.firstChild;
+        //const AppDOM = render(<App />).container.firstChild;
         expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
     });
 
     test('render CitySearch', () => {
-        const AppDOM = render().container.firstChild;
+        //const AppDOM = render().container.firstChild;
         expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
         });
 
