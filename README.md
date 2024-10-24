@@ -118,3 +118,7 @@ This needs to be run from the directory 'meet\auth-server'.
 
 The command to run this application locally on the machine is 'http-server'. 
 This needs to be run from the directory 'meet\static-site-test'.
+
+
+In Exercise 4.5 - 
+ Used React Testing Library to create unit and integration tests. You also dove into the world of serverless functions, using Lambda to write functions for retrieving and managing access and refresh tokens for the Google Calendar API, which you then integrated into your app.
