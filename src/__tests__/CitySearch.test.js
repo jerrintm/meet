@@ -1,32 +1,27 @@
 // src/__tests__/CitySearch.test.js
 
 import { render, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import  userEvent  from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 import { extractLocations, getEvents } from '../api';
 import App from '../App';
 
 describe('<CitySearch /> component', () => {
-    let CitySearchComponent;
-  beforeEach(() => {
-    CitySearchComponent = render(<CitySearch />);
-  });
-
   test('renders text input', () => {
-    //const CitySearchComponent = render(<CitySearch />);
+    const CitySearchComponent = render(<CitySearch allLocations={[]} />);
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     expect(cityTextBox).toBeInTheDocument();
     expect(cityTextBox).toHaveClass('city');
   });
 
   test('suggestions list is hidden by default', () => {
-    //const CitySearchComponent = render(<CitySearch />);
+    const CitySearchComponent = render(<CitySearch allLocations={[]} />);
     const suggestionList = CitySearchComponent.queryByRole('list');
     expect(suggestionList).not.toBeInTheDocument();
   });
 
   test('renders a list of suggestions when city textbox gains focus', async () => {
-    //const CitySearchComponent = render(<CitySearch />);
+    const CitySearchComponent = render(<CitySearch allLocations={[]} />);
     const user = userEvent.setup();
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     await user.click(cityTextBox);
@@ -39,8 +34,8 @@ describe('<CitySearch /> component', () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
-
+    const CitySearchComponent = render(<CitySearch allLocations={allLocations} />);
+    
     // user types "Berlin" in city textbox
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     await user.type(cityTextBox, "Berlin");
@@ -62,7 +57,8 @@ describe('<CitySearch /> component', () => {
     const user = userEvent.setup();
     const allEvents = await getEvents(); 
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} />);
+    const CitySearchComponent = render(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} />);
+    //CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} />);
 
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     await user.type(cityTextBox, "Berlin");
