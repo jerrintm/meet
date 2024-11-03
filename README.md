@@ -122,3 +122,9 @@ This needs to be run from the directory 'meet\static-site-test'.
 
 In Exercise 4.5 - 
  Used React Testing Library to create unit and integration tests. You also dove into the world of serverless functions, using Lambda to write functions for retrieving and managing access and refresh tokens for the Google Calendar API, which you then integrated into your app.
+
+ In Exercise 4.9 - 
+ Progressive web apps are discussed. This enables achievement of Scenario 6 & 7 described above.
+
+ Note: To run the code locally on the box, use the command -> npm run start
+ It can also be run from online Github if the code is synced there.
